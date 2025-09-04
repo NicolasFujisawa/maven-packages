@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.4</version>
+        <version>3.5.5</version>
     </parent>
 
     <groupId>com.goblin</groupId>
@@ -16,8 +16,9 @@
 
     <properties>
         <java.version>24</java.version>
-        <otel.version>2.15.0</otel.version>
+        <otel.version>2.9.0</otel.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
+        <micrometer.version>1.15.3</micrometer.version>
     </properties>
 
     <dependencies>
@@ -35,31 +36,25 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Open Telemetry starter -->
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
             <artifactId>opentelemetry-spring-boot-starter</artifactId>
-            <version>${otel.version}</version>
         </dependency>
-        <!-- Micrometer Prometheus registry -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
+            <version>${micrometer.version}</version>
         </dependency>
-        <!-- Micrometer Tracing Bridge for OpenTelemetry -->
-        <dependency>
-            <groupId>io.micrometer</groupId>
-            <artifactId>micrometer-tracing-bridge-otel</artifactId>
-        </dependency>
-        <!-- Micrometer registry for OTel (métricas do Actuator) -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-otlp</artifactId>
+            <version>${micrometer.version}</version>
         </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <!-- OpenTelemetry BOM -->
             <dependency>
                 <groupId>io.opentelemetry.instrumentation</groupId>
                 <artifactId>opentelemetry-instrumentation-bom</artifactId>
