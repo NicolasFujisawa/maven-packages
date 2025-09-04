@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>24</java.version>
-        <otel.version>2.9.0</otel.version>
+        <otel.version>2.19.0</otel.version>
         <maven.compiler.release>${java.version}</maven.compiler.release>
         <micrometer.version>1.15.3</micrometer.version>
     </properties>
@@ -39,6 +39,7 @@
         <dependency>
             <groupId>io.opentelemetry.instrumentation</groupId>
             <artifactId>opentelemetry-spring-boot-starter</artifactId>
+            <version>${otel.version}</version>
         </dependency>
         <dependency>
             <groupId>io.micrometer</groupId>
